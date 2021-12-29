@@ -158,6 +158,55 @@ public interface IRecipeLogic {
     void recipeEUt(int eut);
 
     /**
+     * Get recipe FEt.
+     *
+     * @return recipe FEt
+     */
+    @ZenGetter
+    int recipeFEt();
+
+    /**
+     * Set recipe FEt.
+     *
+     * @param FEt recipe FEt
+     */
+    @ZenSetter
+    void recipeFEt(int FEt);
+
+
+    /**
+     * Get recipe MANAt.
+     *
+     * @return recipe MANAt
+     */
+    @ZenGetter
+    int recipeMANAt();
+
+    /**
+     * Set recipe MANAt.
+     *
+     * @param MANAt recipe MANAt
+     */
+    @ZenSetter
+    void recipeMANAt(int MANAt);
+
+    /**
+     * Get recipe aspect outputs.
+     *
+     * @return recipe aspect outputs.
+     */
+    @ZenGetter
+    IAspectStack[] aspectOutputs();
+
+    /**
+     * Set recipe aspect outputs.
+     *
+     * @param aspectOutputs recipe aspect outputs.
+     */
+    @ZenSetter
+    void aspectOutputs(IAspectStack[] aspectOutputs);
+
+    /**
      * Get recipe fluid outputs.
      *
      * @return recipe fluid outputs.
@@ -570,9 +619,37 @@ public interface IRecipeLogic {
 
     /**
      *
-     * @return evergyHatchr
+     * @return evergyHatch
      */
-    @ZenGetter("evergyHatchr")
+    @ZenGetter("evergyHatch")
     IIEnergyContainer getEnergyHatch();
+
+    /**
+     *
+     * @return feHatch
+     */
+    @ZenGetter("feHatch")
+    IIEnergyStorage getFEHatch();
+
+    /**
+     *
+     * @return manaHatch
+     */
+    @ZenGetter("manaHatch")
+    IIEnergyStorage getMANAHatch();
+
+    /**
+     *
+     * @return inputAspect
+     */
+    @ZenGetter("inputAspect")
+    List<IAspectTank> getInAspectHatch();
+
+    /**
+     *
+     * @return outputAspect
+     */
+    @ZenGetter("outputAspect")
+    List<IAspectTank> getOutAspectHatch();
 
 }

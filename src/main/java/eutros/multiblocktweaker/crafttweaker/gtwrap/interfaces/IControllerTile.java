@@ -351,6 +351,34 @@ public interface IControllerTile extends IMetaTileEntity {
     IIMultipleTankHandler getOutputFluidInventory();
 
     /**
+     *
+     * @return feHatch
+     */
+    @ZenGetter("feHatch")
+    IIEnergyStorage getFEHatch();
+
+    /**
+     *
+     * @return manaHatch
+     */
+    @ZenGetter("manaHatch")
+    IIEnergyStorage getMANAHatch();
+
+    /**
+     *
+     * @return inputAspect
+     */
+    @ZenGetter("inputAspect")
+    List<IAspectTank> getInAspectHatch();
+
+    /**
+     *
+     * @return outputAspect
+     */
+    @ZenGetter("outputAspect")
+    List<IAspectTank> getOutAspectHatch();
+
+    /**
      * The recipe logic handler of this multiblock.
      * 
      * @return Recipe logic.

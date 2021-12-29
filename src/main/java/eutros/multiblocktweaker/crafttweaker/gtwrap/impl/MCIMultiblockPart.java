@@ -3,9 +3,7 @@ package eutros.multiblocktweaker.crafttweaker.gtwrap.impl;
 import eutros.multiblocktweaker.crafttweaker.gtwrap.interfaces.IIMultiblockPart;
 import eutros.multiblocktweaker.crafttweaker.gtwrap.interfaces.IMultiblockAbility;
 import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
-import gregtech.api.metatileentity.multiblock.IMultiblockPart;
-import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityMultiblockPart;
-import org.jetbrains.annotations.NotNull;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
 import org.jetbrains.annotations.Nullable;
 
 public class MCIMultiblockPart extends MCMetaTileEntity implements IIMultiblockPart {
@@ -18,7 +16,6 @@ public class MCIMultiblockPart extends MCMetaTileEntity implements IIMultiblockP
     }
 
     @Override
-    @NotNull
     public MetaTileEntityMultiblockPart getInternal() {
         return inner;
     }

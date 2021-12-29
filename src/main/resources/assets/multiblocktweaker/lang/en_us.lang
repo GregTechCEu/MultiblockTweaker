@@ -1,1 +1,62 @@
 gregtech.recipe.consumeChance=Inputs consumed %s%% of the time.
+
+
+multiblocktweaker.machine.forge_energy_hatch.input.lv.name=LV Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.mv.name=MV Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.hv.name=HV Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.ev.name=EV Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.iv.name=IV Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.luv.name=LuV Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.zpm.name=ZPM Forge Energy Input Hatch
+multiblocktweaker.machine.forge_energy_hatch.input.uv.name=UV Forge Energy Input Hatch
+
+multiblocktweaker.machine.forge_energy_hatch.output.lv.name=LV Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.mv.name=MV Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.hv.name=HV Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.ev.name=EV Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.iv.name=IV Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.luv.name=LuV Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.zpm.name=ZPM Forge Energy Output Hatch
+multiblocktweaker.machine.forge_energy_hatch.output.uv.name=UV Forge Energy Output Hatch
+
+multiblocktweaker.machine.botania_mana_hatch.input.lv.name=LV Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.mv.name=MV Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.hv.name=HV Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.ev.name=EV Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.iv.name=IV Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.luv.name=LuV Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.zpm.name=ZPM Botania Mana Input Hatch
+multiblocktweaker.machine.botania_mana_hatch.input.uv.name=UV Botania Mana Input Hatch
+
+multiblocktweaker.machine.botania_mana_hatch.output.lv.name=LV Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.mv.name=MV Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.hv.name=HV Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.ev.name=EV Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.iv.name=IV Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.luv.name=LuV Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.zpm.name=ZPM Botania Mana Output Hatch
+multiblocktweaker.machine.botania_mana_hatch.output.uv.name=UV Botania Mana Output Hatch
+
+multiblocktweaker.machine.thaumcraft_essentia_hatch.input.lv.name=LV Thaumcraft Essentia Input Hatch
+multiblocktweaker.machine.thaumcraft_essentia_hatch.input.mv.name=MV Thaumcraft Essentia Input Hatch
+multiblocktweaker.machine.thaumcraft_essentia_hatch.input.hv.name=HV Thaumcraft Essentia Input Hatch
+multiblocktweaker.machine.thaumcraft_essentia_hatch.input.ev.name=EV Thaumcraft Essentia Input Hatch
+
+multiblocktweaker.machine.thaumcraft_essentia_hatch.output.lv.name=LV Thaumcraft Essentia Output Hatch
+multiblocktweaker.machine.thaumcraft_essentia_hatch.output.mv.name=MV Thaumcraft Essentia Output Hatch
+multiblocktweaker.machine.thaumcraft_essentia_hatch.output.hv.name=HV Thaumcraft Essentia Output Hatch
+multiblocktweaker.machine.thaumcraft_essentia_hatch.output.ev.name=EV Thaumcraft Essentia Output Hatch
+
+multiblocktweaker.machine.mekanism_heat_hatch.lv.name=LV Mekanism Heat Hatch
+multiblocktweaker.machine.mekanism_heat_hatch.mv.name=MV Mekanism Heat Hatch
+multiblocktweaker.machine.mekanism_heat_hatch.hv.name=HV Mekanism Heat Hatch
+multiblocktweaker.machine.mekanism_heat_hatch.ev.name=EV Mekanism Heat Hatch
+
+multiblocktweaker.machine.part.unit.mana=mana;
+multiblocktweaker.machine.part.unit.aspect=aspect;
+multiblocktweaker.machine.part.unit.fe=FE;
+
+multiblocktweaker.machine.part.input.tooltip=(%s) Input for Multiblocks
+multiblocktweaker.machine.part.output.tooltip=(%s) Output for Multiblocks
+multiblocktweaker.machine.part.capacity=%s capacity: §e%,d %s (%s)
+multiblocktweaker.machine.part.maxTransfer=%s transfer speed: §e%,d %s / tick

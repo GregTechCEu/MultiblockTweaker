@@ -10,11 +10,18 @@ import eutros.multiblocktweaker.MultiblockTweaker;
 import eutros.multiblocktweaker.crafttweaker.CustomMultiblock;
 import eutros.multiblocktweaker.crafttweaker.functions.IPatternBuilderFunction;
 import eutros.multiblocktweaker.crafttweaker.gtwrap.impl.MCControllerTile;
+import eutros.multiblocktweaker.crafttweaker.gtwrap.impl.MCIEnergyStorage;
+import eutros.multiblocktweaker.crafttweaker.gtwrap.impl.MCIEnergyStorageList;
 import eutros.multiblocktweaker.crafttweaker.gtwrap.impl.MCIMultiblockPart;
 import eutros.multiblocktweaker.crafttweaker.gtwrap.impl.MCPatternMatchContext;
 import eutros.multiblocktweaker.crafttweaker.gtwrap.impl.MCRecipe;
+import eutros.multiblocktweaker.crafttweaker.gtwrap.interfaces.IAspectTank;
+import eutros.multiblocktweaker.crafttweaker.gtwrap.interfaces.IIEnergyStorage;
 import eutros.multiblocktweaker.gregtech.recipes.CustomMultiblockRecipeLogic;
 import eutros.multiblocktweaker.gregtech.renderer.IBlockStateRenderer;
+import eutros.multiblocktweaker.gregtech.tile.part.TileBotaniaManaHatch;
+import eutros.multiblocktweaker.gregtech.tile.part.TileForgeEnergyHatch;
+import eutros.multiblocktweaker.gregtech.tile.part.TileThaumcraftEssentiaHatch;
 import gregtech.api.block.machines.BlockMachine;
 import gregtech.api.capability.impl.EnergyContainerList;
 import gregtech.api.metatileentity.MetaTileEntity;
@@ -29,7 +36,7 @@ import gregtech.api.pattern.PatternMatchContext;
 import gregtech.api.pattern.PatternStringError;
 import gregtech.api.recipes.Recipe;
 import gregtech.client.renderer.ICubeRenderer;
-import gregtech.common.metatileentities.electric.multiblockpart.MetaTileEntityMultiblockPart;
+import gregtech.common.metatileentities.multi.multiblockpart.MetaTileEntityMultiblockPart;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -37,12 +44,14 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.energy.IEnergyStorage;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -53,6 +62,9 @@ public class TileControllerCustom extends RecipeMapMultiblockController {
     public final CustomMultiblock multiblock;
     // remove on error
     private IPatternBuilderFunction patternBuilderFunction;
+
+    private IEnergyStorage feContainer;
+    private IEnergyStorage manaContainer;
 
     @Nullable
     public IData persistentData;
@@ -106,6 +118,18 @@ public class TileControllerCustom extends RecipeMapMultiblockController {
                         .flatMap(Collection::stream)
                         .collect(Collectors.toList())
         );
+        this.feContainer = new MCIEnergyStorageList(
+                Stream.of(TileForgeEnergyHatch.INPUT_FORGE_ENERGY,
+                        TileForgeEnergyHatch.OUTPUT_FORGE_ENERGY)
+                        .map(this::getAbilities)
+                        .flatMap(Collection::stream)
+                        .collect(Collectors.toList()));
+        this.manaContainer = new MCIEnergyStorageList(
+                Stream.of(TileBotaniaManaHatch.INPUT_BOTANIA_MANA,
+                        TileBotaniaManaHatch.OUTPUT_BOTANIA_MANA)
+                        .map(this::getAbilities)
+                        .flatMap(Collection::stream)
+                        .collect(Collectors.toList()));
         for (IMultiblockPart part : getMultiblockParts()) {
             if (part instanceof MetaTileEntity) {
                 ICubeRenderer renderer = getBaseTexture(part);
@@ -131,6 +155,8 @@ public class TileControllerCustom extends RecipeMapMultiblockController {
     @Override
     public void invalidateStructure() {
         super.invalidateStructure();
+        this.feContainer = new MCIEnergyStorageList(Collections.emptyList());
+        this.manaContainer = new MCIEnergyStorageList(Collections.emptyList());
         if (multiblock.invalidateStructureFunction != null) {
             try {
                 multiblock.invalidateStructureFunction.run(new MCControllerTile(this));
@@ -312,5 +338,25 @@ public class TileControllerCustom extends RecipeMapMultiblockController {
     @Override
     public boolean canBeDistinct() {
         return multiblock.canBeDistinct == null ? super.canBeDistinct() : multiblock.canBeDistinct;
+    }
+
+    public List<IAspectTank> getInAspectHatch() {
+        return getAbilities(TileThaumcraftEssentiaHatch.INPUT_THAUMCRAFT_ESSENTIA).stream().map(
+                TileThaumcraftEssentiaHatch::getContainer).collect(
+                Collectors.toList());
+    }
+
+    public List<IAspectTank> getOutAspectHatch() {
+        return getAbilities(TileThaumcraftEssentiaHatch.OUTPUT_THAUMCRAFT_ESSENTIA).stream().map(
+                TileThaumcraftEssentiaHatch::getContainer).collect(
+                Collectors.toList());
+    }
+
+    public IIEnergyStorage getFEHatch() {
+        return new MCIEnergyStorage(feContainer);
+    }
+
+    public IIEnergyStorage getMANAHatch() {
+        return new MCIEnergyStorage(manaContainer);
     }
 }

@@ -1,7 +1,10 @@
 package eutros.multiblocktweaker;
 
+import eutros.multiblocktweaker.gregtech.client.MBTTextures;
+import eutros.multiblocktweaker.gregtech.tile.MBTMetaTileEntities;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = MultiblockTweaker.MOD_ID,
         name = "Multiblock Tweaker",
@@ -15,7 +18,9 @@ public class MultiblockTweaker {
     }
 
     @Mod.EventHandler
-    public static void postInit(FMLPostInitializationEvent evt) {
+    public static void preInit(FMLPreInitializationEvent evt) {
+        MBTTextures.init();
+        MBTMetaTileEntities.init();
     }
 
 }
